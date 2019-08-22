@@ -1,0 +1,10 @@
+.sign-in {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+
+  //I don't have a title class but I like how it looks for now
+  .title {
+    margin: 10px 0;
+  }
+}
