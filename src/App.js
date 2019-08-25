@@ -38,6 +38,7 @@ class App extends React.Component {
   }
 
   render() {
+    const { currentUser } = this.props;
     return (
       <div>
         <Header />
@@ -48,11 +49,7 @@ class App extends React.Component {
             exact
             path='/signin'
             render={() =>
-              this.props.currentUser ? (
-                <Redirect to='/' />
-              ) : (
-                <SignInAndSignUpPage />
-              )
+              currentUser ? <Redirect to='/' /> : <SignInAndSignUpPage />
             }
           />
         </Switch>
@@ -61,10 +58,12 @@ class App extends React.Component {
   }
 }
 
+//mapStateToProps references root-reducer > then the user within root-reducer > currentUser with in user.reducer
 const mapStateToProps = ({ user }) => ({
   currentUser: user.currentUser
 });
 
+//allows the state to change like react hooks setCurreentUser sets the state
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 });
