@@ -30,6 +30,10 @@ export const OptionsContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
   margin-top: 15px;
+
+  @media screen and (max-width: 800px) {
+    width: 70%;
+  }
 `;
 
 //string interpelation used to add styles to more than one element
